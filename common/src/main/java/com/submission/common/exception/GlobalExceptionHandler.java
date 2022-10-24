@@ -33,10 +33,12 @@ public class GlobalExceptionHandler {
     public CommonResult handleValidException(MethodArgumentNotValidException e) {
         BindingResult bindingResult = e.getBindingResult();
         String message = null;
-        if (bindingResult.hasErrors()) {
-
+        if (bindingResult.hasFieldErrors()) {
+//            message = bindingResult.getGlobalErrors().get(0).getDefaultMessage();
+            message = bindingResult.getFieldError().getField()+bindingResult.getFieldError().getDefaultMessage();
+        }
+        if(bindingResult.hasGlobalErrors()){
             message = bindingResult.getGlobalErrors().get(0).getDefaultMessage();
-
         }
         return CommonResult.validateFailed(message);
     }
@@ -46,7 +48,7 @@ public class GlobalExceptionHandler {
     public CommonResult handleValidException(BindException e) {
         BindingResult bindingResult = e.getBindingResult();
         String message = null;
-        if (bindingResult.hasErrors()) {
+        if (bindingResult.hasFieldErrors()) {
             FieldError fieldError = bindingResult.getFieldError();
             if (fieldError != null) {
                 message = fieldError.getField()+fieldError.getDefaultMessage();

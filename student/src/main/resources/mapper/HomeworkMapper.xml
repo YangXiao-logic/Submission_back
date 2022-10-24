@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.submission.teacher.mapper.HomeworkMapper">
+
+    <resultMap id="BaseResultMap" type="com.submission.student.entity.Homework">
+            <result property="homeworkTitle" column="homework_title" jdbcType="VARCHAR"/>
+            <result property="homeworkDescription" column="homework_description" jdbcType="VARCHAR"/>
+            <result property="totalPoint" column="total_point" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="listAllByStudentId" resultMap="BaseResultMap">
+        select homework_title from homework_student_relation hsr join homework_base hb on
+            hb.homework_id=hsr.homework_id where hsr.student_id = #{studentId}
+    </select>
+
+    
+
+
+</mapper>

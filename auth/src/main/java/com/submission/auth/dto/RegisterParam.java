@@ -21,6 +21,8 @@ public class RegisterParam {
     @Pattern(regexp = "^[1][3,4,5,6,7,8,9][0-9]{9}$", message = "手机号格式不对")
     private String phone;
     @NotNull
+    private String account;
+    @NotNull
     @Length(min = 6,message = "密码在6位以上")
     private String password1;
     @NotNull

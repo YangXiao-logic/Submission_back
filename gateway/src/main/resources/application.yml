@@ -11,10 +11,18 @@ spring:
           uri: lb://auth
           predicates:
             - Path=/auth/**
+        - id: teacher
+          uri: lb://teacher
+          predicates:
+            - Path=/teacher/**
+        - id: collect
+          uri: lb://collect
+          predicates:
+            - Path=/collect/**
       discovery:
         locator:
           enabled: true #开启从注册中心动态创建路由的功能
-          lower-case-service-id: true #使用小写服务名，默认是大写
+#          lower-case-service-id: true #使用小写服务名，默认是大写
 
 
   redis:

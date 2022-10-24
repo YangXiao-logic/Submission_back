@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.submission.auth.mapper.RoleMapper">
+
+    <resultMap id="Role" type="com.submission.auth.entity.Role">
+        <result property="roleId" column="role_id"></result>
+        <result property="roleName" column="role_name"></result>
+    </resultMap>
+
+
+    <select id="getRoleListByCustomerId" resultType="string">
+        select roleName from customer_base cb
+            join TABLE ( customer_role_relation ) crr
+            on r.role_id = crr.role_id
+            where customer_id=#{customerId}
+    </select>
+
+    <insert id="insertCustomerRole">
+        insert into
+    </insert>
+</mapper>

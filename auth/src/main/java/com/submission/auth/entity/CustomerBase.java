@@ -1,6 +1,7 @@
 package com.submission.auth.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import java.util.Date;
@@ -18,18 +19,11 @@ public class CustomerBase {
     private String customerId;
 
     private String phone;
-    /**
-     * 创建时间
-     */
-    private Date createTime;
-    /**
-     * 修改时间
-     */
-    private Date updateTime;
 
     private String password;
 
-    private String nickName;
+    private String account;
+
 
 }
 

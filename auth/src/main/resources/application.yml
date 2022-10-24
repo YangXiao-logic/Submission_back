@@ -34,7 +34,9 @@ feign:
 mybatis-plus:
   global-config:
     db-config:
-      id-type: uuid
+      id-type: assign_uuid
+  mapper-locations:
+    - classpath:mapper/*.xml
 
 
 # Sa-Token配置

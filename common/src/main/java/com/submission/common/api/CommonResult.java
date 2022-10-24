@@ -7,15 +7,15 @@ package com.submission.common.api;
 public class CommonResult<T> {
     private long code;
     private String message;
-    private T data;
+    private T result;
 
     protected CommonResult() {
     }
 
-    protected CommonResult(long code, String message, T data) {
+    protected CommonResult(long code, String message, T result) {
         this.code = code;
         this.message = message;
-        this.data = data;
+        this.result = result;
     }
 
     /**
@@ -114,11 +114,11 @@ public class CommonResult<T> {
         this.message = message;
     }
 
-    public T getData() {
-        return data;
+    public T getResult() {
+        return result;
     }
 
-    public void setData(T data) {
-        this.data = data;
+    public void setResult(T result) {
+        this.result = result;
     }
 }
