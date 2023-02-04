@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="IU-222.3739.54">
-    <data-source name="aliyun" uuid="1ad3847f-3262-42c4-8f13-1daef888b62b">
+    <data-source name="aliyun" uuid="9cc605e9-3bf6-47dc-9f9a-2cf50ef08dfb">
       <database-info product="MySQL" version="8.0.25" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.25 (Revision: 08be9e9b4cba6aa115f9b27b215887af40b159e0)" dbms="MYSQL" exact-version="8.0.25" exact-driver-version="8.0">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
@@ -11,17 +11,17 @@
       <user-name>root</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node kind="schema" negative="1" />
+          <node kind="schema" qname="collect" negative="1" />
         </introspection-scope>
       </schema-mapping>
     </data-source>
-    <data-source name="@47.108.53.218" uuid="36230f86-fd13-4079-810e-b3217c78f2e7">
-      <database-info product="Mongo DB" version="4.4.17" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.15" dbms="MONGO" exact-version="4.4.17" exact-driver-version="1.15" />
+    <data-source name="@47.108.53.218" uuid="f72191c0-3a76-4e7f-9069-3452bb3d6d4e">
+      <database-info product="Mongo DB" version="4.4.17" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.16" dbms="MONGO" exact-version="4.4.17" exact-driver-version="1.16" />
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <secret-storage>master_key</secret-storage>
       <schema-mapping>
         <introspection-scope>
-          <node kind="schema" qname="@" />
+          <node kind="schema" negative="1" />
         </introspection-scope>
       </schema-mapping>
     </data-source>

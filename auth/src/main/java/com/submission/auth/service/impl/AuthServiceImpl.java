@@ -37,7 +37,7 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public CustomerBase loadCustomerByPhone(String phone) {
         QueryWrapper<CustomerBase> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq("phone",phone);
+        queryWrapper.eq("mobile",phone);
         List<CustomerBase> customerList = customerBaseDao.selectList(queryWrapper);
         if(customerList.size()==0){
             return null;
@@ -58,7 +58,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public SaTokenInfo login(LoginParam loginParam) {
-        String phone = loginParam.getPhone();
+        String phone = loginParam.getMobile();
         String account = loginParam.getAccount();
         String password = loginParam.getPassword();
         CustomerBase customerBase = null;
@@ -84,15 +84,15 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public void register(RegisterParam registerParam) {
-        String phone = registerParam.getPhone();
-        List<CustomerBase> customerBase = customerBaseDao.selectList(new QueryWrapper<CustomerBase>().eq("phone", phone));
+        String mobile = registerParam.getMobile();
+        List<CustomerBase> customerBase = customerBaseDao.selectList(new QueryWrapper<CustomerBase>().eq("mobile", mobile));
         if (customerBase.size()!=0){
             Asserts.fail("该号码已经被注册");
         }
-        String encodePassword = SaSecureUtil.md5(registerParam.getPassword1());
+        String encodePassword = SaSecureUtil.md5(registerParam.getPassword());
         CustomerBase customer = new CustomerBase();
         customer.setPassword(encodePassword);
-        customer.setPhone(registerParam.getPhone());
+        customer.setMobile(registerParam.getMobile());
         customer.setAccount(registerParam.getAccount());
         customerBaseDao.insert(customer);
     }

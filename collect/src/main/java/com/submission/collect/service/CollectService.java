@@ -1,6 +1,6 @@
 package com.submission.collect.service;
 
-import com.submission.collect.entity.CollectBase;
+import com.submission.collect.entity.collection.Collection;
 
 import java.util.List;
 
@@ -9,7 +9,9 @@ import java.util.List;
  * @since 2022/10/17 15:14
  */
 public interface CollectService {
-    int createCollect(CollectBase collectBase);
+    int createCollect(Collection collection);
 
-    CollectBase getCollect(String collectId);
+    Collection getCollect(String collectId);
+
+    List<Collection> listCollect();
 }

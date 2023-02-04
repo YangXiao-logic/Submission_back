@@ -1,9 +1,12 @@
 package com.submission.collect.service.impl;
 
 import cn.dev33.satoken.stp.StpUtil;
-import com.submission.collect.entity.CollectBase;
-import com.submission.collect.entity.Question;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.submission.collect.entity.collection.Collection;
+import com.submission.collect.entity.collection.Question;
 import com.submission.collect.mapper.CollectMapper;
+import com.submission.collect.mapper.QuestionMapper;
+import com.submission.collect.repository.QuestionDataRepository;
 import com.submission.collect.repository.QuestionRepository;
 import com.submission.collect.service.CollectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,27 +25,44 @@ public class CollectServiceImpl implements CollectService {
     @Autowired
     private CollectMapper collectMapper;
     @Autowired
+    private QuestionMapper questionMapper;
+    @Autowired
     private QuestionRepository questionRepository;
 
+    @Autowired
+    private QuestionDataRepository questionDataRepository;
+
     @Override
-    public int createCollect(CollectBase collectBase) {
-        List<Question> questionList = collectBase.getQuestionList();
+    public int createCollect(Collection collection) {
+        List<Question> questionList = collection.getQuestionList();
         String managerId = (String) StpUtil.getLoginId();
-        collectBase.setCollectorId(managerId);
-        collectMapper.insert(collectBase);
-        String collectId = collectBase.getCollectId();
+        collection.setCollectorId(managerId);
+        collectMapper.insert(collection);
+        String collectionId = collection.getCollectionId();
+
         questionList = questionList.stream()
-                .peek(question -> question.setCollectId(collectId))
+                .peek(question -> question.setCollectionId(collectionId))
                 .collect(Collectors.toList());
-        questionRepository.insert(questionList);
+        questionRepository.saveAll(questionList);
         return 1;
     }
 
     @Override
-    public CollectBase getCollect(String collectId) {
-        CollectBase collectBase = collectMapper.selectById(collectId);
-        List<Question> questionList = questionRepository.findAllByCollectId(collectId);
-        collectBase.setQuestionList(questionList);
-        return collectBase;
+    public Collection getCollect(String collectId) {
+        Collection collection = collectMapper.selectById(collectId);
+//        List<Question> questionList = questionMapper.
+//                selectList(new QueryWrapper<Question>().eq(collectId, "collection_id"));
+        List<Question> questionList = questionRepository.findAllByCollectionId(collectId);
+        collection.setQuestionList(questionList);
+        return collection;
+    }
+
+    @Override
+    public List<Collection> listCollect() {
+        String managerId = (String) StpUtil.getLoginId();
+        QueryWrapper<Collection> collectBaseQueryWrapper = new QueryWrapper<>();
+        collectBaseQueryWrapper.eq("collector_id",managerId);
+        List<Collection> collectionList = collectMapper.selectList(collectBaseQueryWrapper);
+        return collectionList;
     }
 }

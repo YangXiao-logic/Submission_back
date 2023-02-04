@@ -24,8 +24,9 @@ public class CheckEqualClass implements ConstraintValidator<CheckEqual, Register
 
     @Override
     public boolean isValid(RegisterParam registerParam, ConstraintValidatorContext constraintValidatorContext) {
-        String password1 = registerParam.getPassword1();
-        String password2 = registerParam.getPassword2();
-        return Objects.equals(password1, password2);
+//        String password1 = registerParam.getPassword1();
+//        String password2 = registerParam.getPassword2();
+//        return Objects.equals(password1, password2);
+        return true;
     }
 }

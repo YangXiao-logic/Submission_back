@@ -1,4 +1,4 @@
-package com.submission.collect.entity;
+package com.submission.collect.entity.submission;
 
 /**
  * @author YangXiao
@@ -7,8 +7,6 @@ package com.submission.collect.entity;
 public class Answer {
 
     private String questionName;
-
     private String answer;
-
 
 }

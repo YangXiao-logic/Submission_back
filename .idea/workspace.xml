@@ -4,18 +4,61 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4867c2af-b0f7-47f8-bf76-89a6466cf47c" name="Changes" comment="" />
+    <list default="true" id="3e5afc41-936b-4861-837a-54eefbbd8c09" name="Changes" comment="0.2 version">
+      <change afterPath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/entity/collection/FileAttachmentQuestion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/entity/collection/FileNameRule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/entity/collection/Question.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/entity/collection/QuestionData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/entity/collection/QuestionType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/entity/collection/SimpleTextInputQuestion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/entity/collection/SingleOptionQuestion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/entity/submission/Submission.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/mapper/QuestionMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/repository/QuestionDataRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collect/src/main/resources/mapper/QuestionMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collect/src/test/java/com/submission/collect/mapper/QuestionMapperTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/submission/auth/dto/LoginParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth/src/main/java/com/submission/auth/dto/LoginParam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/submission/auth/dto/RegisterParam.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth/src/main/java/com/submission/auth/dto/RegisterParam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/submission/auth/entity/CustomerBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth/src/main/java/com/submission/auth/entity/CustomerBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/submission/auth/service/impl/AuthServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth/src/main/java/com/submission/auth/service/impl/AuthServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/src/main/java/com/submission/auth/validation/CheckEqualClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/auth/src/main/java/com/submission/auth/validation/CheckEqualClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/auth/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/auth/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/controller/CollectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/controller/CollectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/entity/Answer.java" beforeDir="false" afterPath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/entity/submission/Answer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/entity/CollectBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/entity/collection/Collection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/entity/Question.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/mapper/CollectMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/mapper/CollectMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/repository/QuestionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/repository/QuestionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/service/CollectService.java" beforeDir="false" afterPath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/service/CollectService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/service/impl/CollectServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/collect/src/main/java/com/submission/collect/service/impl/CollectServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collect/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/collect/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collect/src/test/java/com/submission/collect/repository/QuestionRepositoryTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gateway/src/main/resources/application.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Mybatis Mapper" />
+        <option value="JUnit5 Test Class" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JRebelWorkspace">
+    <option name="jrebelEnabledAutocompile" value="true" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -27,92 +70,252 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectId" id="2FZS84D0EcWcfVQfpkn9nbI9eVJ" />
+  <component name="ProjectId" id="2G4ZE8tzuMCaJ3OH9MaBXKFVjI3" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "D:/Github/springcloud-learning/micro-sa-token",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "b4dc2280aab388c5a8e3518769d4b22f"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;SQL Inserts&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/MyProject/Submission/Submission_back/collect/src/main/resources/mapper&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;d418c2e5904f9ebd2cc29e44830d214b&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql",
-      "mongo"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;,
+      &quot;redshift&quot;,
+      &quot;mongo&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
+  <component name="RebelAgentSelection">
+    <selection>jr</selection>
+  </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.submission.collect.service.impl" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\MyProject\Submission\Submission_back\common\src\main\java\com\submission\common" />
-      <recent name="D:\MyProject\Submission\Submission_back\auth\src\main\java\com\submission\auth" />
-      <recent name="D:\MyProject\Submission\Submission_back\auth\src\main\resources" />
-      <recent name="D:\MyProject\Submission\Submission_back\gateway\src\main\resources" />
-      <recent name="D:\MyProject\Submission\Submission_back\gateway\src\main\java\com\submission\gateway" />
+      <recent name="D:\MyProject\Submission\Submission_back\collect\src\main\java\com\submission\collect" />
+      <recent name="D:\MyProject\Submission\Submission_back\collect\src\main\resources" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\MyProject\Submission\Submission_back\sql" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.submission.collect.mapper" />
+      <recent name="com.submission.collect.repository" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.submission.auth.config" />
-      <recent name="com.submission.gateway.handler" />
+      <recent name="com.submission.collect.entity" />
       <recent name="com.submission.common.config" />
-      <recent name="com.submission.auth.entity" />
-      <recent name="com.submission.auth.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.AuthApplication">
-    <configuration name="AuthApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="auth" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.submission.auth.AuthApplication" />
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.QuestionMapperTest.test">
+    <configuration name="QuestionMapperTest.insertQuestion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="collect" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.submission.collect.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.submission.collect.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.submission.collect.mapper.QuestionMapperTest" />
+      <option name="METHOD_NAME" value="insertQuestion" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="QuestionMapperTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="collect" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.submission.collect.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.submission.collect.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.submission.collect.mapper.QuestionMapperTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="auth" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.submission.auth.AuthApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.submission.auth.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CollectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="ACTIVE_PROFILES" />
+      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/corretto-1.8.0_342" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <module name="collect" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.submission.collect.CollectApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.submission.gateway.GatewayApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.submission.gateway.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TeacherApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="teacher" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.submission.teacher.TeacherApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.submission.teacher.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Spring Boot.AuthApplication" />
+      <item itemvalue="JUnit.QuestionMapperTest.test" />
+      <item itemvalue="JUnit.QuestionMapperTest.insertQuestion" />
+      <item itemvalue="Spring Boot.CollectApplication" />
       <item itemvalue="Spring Boot.GatewayApplication" />
+      <item itemvalue="Spring Boot.AuthApplication" />
+      <item itemvalue="Spring Boot.TeacherApplication" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.AuthApplication" />
+        <item itemvalue="Spring Boot.GatewayApplication" />
+        <item itemvalue="JUnit.QuestionMapperTest.test" />
+        <item itemvalue="JUnit.QuestionMapperTest.insertQuestion" />
+        <item itemvalue="Spring Boot.TeacherApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4867c2af-b0f7-47f8-bf76-89a6466cf47c" name="Changes" comment="" />
-      <created>1664697950840</created>
+      <changelist id="3e5afc41-936b-4861-837a-54eefbbd8c09" name="Changes" comment="" />
+      <created>1665649703679</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1664697950840</updated>
-      <workItem from="1664697952139" duration="6340000" />
-      <workItem from="1664715906351" duration="4716000" />
-      <workItem from="1664758664569" duration="15773000" />
+      <updated>1665649703679</updated>
+      <workItem from="1665649708538" duration="934000" />
+      <workItem from="1665650669160" duration="1171000" />
+      <workItem from="1665709977720" duration="6989000" />
+      <workItem from="1665800346537" duration="2967000" />
+      <workItem from="1665984544436" duration="11617000" />
+      <workItem from="1666055326544" duration="4157000" />
+      <workItem from="1666515466830" duration="362000" />
+      <workItem from="1666577348517" duration="892000" />
+      <workItem from="1666592159085" duration="11073000" />
+      <workItem from="1666661768010" duration="5992000" />
+      <workItem from="1666749643831" duration="3219000" />
+      <workItem from="1666791900707" duration="315000" />
+      <workItem from="1666829772737" duration="4012000" />
+      <workItem from="1667050046626" duration="306000" />
+      <workItem from="1667214363320" duration="1297000" />
+      <workItem from="1667434559772" duration="3573000" />
+      <workItem from="1667621241600" duration="2576000" />
+      <workItem from="1667725372018" duration="785000" />
+      <workItem from="1667780502841" duration="1636000" />
+      <workItem from="1667871164808" duration="2486000" />
+      <workItem from="1667983705150" duration="1586000" />
+      <workItem from="1668045476482" duration="1205000" />
+      <workItem from="1668324291632" duration="905000" />
+      <workItem from="1668394697352" duration="161000" />
+      <workItem from="1668394870633" duration="1449000" />
+      <workItem from="1668475115476" duration="606000" />
+      <workItem from="1668601354731" duration="869000" />
+      <workItem from="1668667192871" duration="678000" />
+      <workItem from="1668824465294" duration="730000" />
+      <workItem from="1668916067931" duration="1288000" />
+      <workItem from="1668993825027" duration="10784000" />
+      <workItem from="1669013575066" duration="3146000" />
+      <workItem from="1669081316611" duration="5119000" />
+      <workItem from="1669169351512" duration="1627000" />
+      <workItem from="1670158359272" duration="2284000" />
+      <workItem from="1670227135775" duration="1989000" />
+      <workItem from="1670554493054" duration="1700000" />
+      <workItem from="1671435008182" duration="2065000" />
+      <workItem from="1672046895409" duration="1322000" />
+      <workItem from="1672415358782" duration="1034000" />
+      <workItem from="1672452357142" duration="1193000" />
     </task>
+    <task id="LOCAL-00001" summary="0.2 version">
+      <created>1666604050789</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1666604050789</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="0.2 version" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.2 version" />
   </component>
 </project>

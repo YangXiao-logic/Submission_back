@@ -18,7 +18,7 @@ public class CustomerBase {
     @TableId("customer_id")
     private String customerId;
 
-    private String phone;
+    private String mobile;
 
     private String password;
 
