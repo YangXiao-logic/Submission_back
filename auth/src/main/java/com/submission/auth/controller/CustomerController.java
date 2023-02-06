@@ -20,7 +20,7 @@ import static net.sf.jsqlparser.util.validation.metadata.NamedObject.role;
  * @since 2022/9/1 15:27
  */
 @RestController
-@RequestMapping("/customer")
+@RequestMapping("/auth")
 public class CustomerController {
 
     @Autowired
@@ -36,6 +36,11 @@ public class CustomerController {
     public CommonResult register(@Validated @RequestBody RegisterParam registerParam ){
         authService.register(registerParam);
         return CommonResult.success(null,"注册成功");
+    }
+
+    @DeleteMapping("/logout")
+    public CommonResult logout(){
+        return CommonResult.success(null,"登出成功");
     }
 
     @GetMapping("/roleList/{id}")

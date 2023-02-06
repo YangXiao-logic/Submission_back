@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.submission</groupId>
-    <artifactId>submission</artifactId>
+    <artifactId>submission_back</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -15,7 +15,7 @@
         <module>auth</module>
         <module>teacher</module>
         <module>student</module>
-        <module>collect</module>
+        <module>collection</module>
     </modules>
 
 

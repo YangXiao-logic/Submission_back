@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.submission.collection.mapper.NameMapper">
+
+
+    <insert id="insertNameBatch">
+        insert into name (name_id, name_, user_id) values
+        <foreach collection="nameList" separator=",">
+            (#{nameId}, #{name_}, #{userId})
+        </foreach>;
+        insert into collection_name_relation(collection_id, name_id) values
+        <foreach collection="nameList" separator=",">
+            (#{collectionId}, #{nameId})
+        </foreach>;
+    </insert>
+    <insert id="insertNameToCollectionFromUser">
+        insert into collection_name_relation(collection_id, name_id)
+        values (#{collectionId}, #{nameId});
+    </insert>
+    <insert id="insertNameToUser">
+        insert into name (name_id, name_, user_id)
+        values (#{nameId}, #{name_}, #{userId});
+    </insert>
+    <select id="getNameList" resultType="java.lang.String">
+        select name_ from name where name_id in (select name_id from collection_name_relation where collection_id = #{collectionId})
+    </select>
+    <select id="getAllNameSet" resultType="java.lang.String">
+        select name_ from name where customer_id = #{customerId};
+    </select>
+</mapper>
