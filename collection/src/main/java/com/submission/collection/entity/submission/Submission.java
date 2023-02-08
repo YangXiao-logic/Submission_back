@@ -12,7 +12,7 @@ import java.util.List;
 public class Submission {
 
     String submissionId;
-    String collectId;
+    String collectionId;
     List<Answer> answerList;
 
 }

@@ -6,10 +6,10 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 @EnableMongoRepositories
 @SpringBootApplication(scanBasePackages = {"com.submission.collection","com.submission.common"})
-public class CollectApplication {
+public class CollectionApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CollectApplication.class, args);
+        SpringApplication.run(CollectionApplication.class, args);
     }
 
 }

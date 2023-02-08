@@ -1,4 +1,4 @@
-package com.submission.collection.entity.collection;
+package com.submission.collection.entity.collection.question;
 
 import lombok.Data;
 
@@ -9,6 +9,6 @@ import java.util.List;
  * @since 2022/11/21 15:33
  */
 @Data
-public class SingleOptionQuestion extends Question{
+public class SingleChoiceQuestion extends Question{
     private List<String> optionList;
 }

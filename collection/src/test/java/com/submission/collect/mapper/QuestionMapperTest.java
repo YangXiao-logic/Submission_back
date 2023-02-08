@@ -1,7 +1,7 @@
 package com.submission.collect.mapper;
 
-import com.submission.collection.entity.collection.SingleOptionQuestion;
-import com.submission.collection.entity.collection.Question;
+import com.submission.collection.entity.collection.question.SingleChoiceQuestion;
+import com.submission.collection.entity.collection.question.Question;
 import com.submission.collection.mapper.QuestionMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,13 +27,13 @@ class QuestionMapperTest {
 
     @Test
     void test(){
-        SingleOptionQuestion singleOptionQuestion = new SingleOptionQuestion();
-        singleOptionQuestion.setOptionList(new ArrayList<>());
-        singleOptionQuestion.getOptionList().add("1");
+        SingleChoiceQuestion singleChoiceQuestion = new SingleChoiceQuestion();
+        singleChoiceQuestion.setOptionList(new ArrayList<>());
+        singleChoiceQuestion.getOptionList().add("1");
         Question question=new Question();
         question.setName("1");
         List<Question> questionList=new ArrayList<>();
-        questionList.add(singleOptionQuestion);
+        questionList.add(singleChoiceQuestion);
         questionList.add(question);
         System.out.println(questionList);
     }

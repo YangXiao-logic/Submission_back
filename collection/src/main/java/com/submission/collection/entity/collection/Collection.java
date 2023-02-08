@@ -3,6 +3,7 @@ package com.submission.collection.entity.collection;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.submission.collection.entity.collection.question.Question;
 import lombok.Getter;
 import lombok.Setter;
 

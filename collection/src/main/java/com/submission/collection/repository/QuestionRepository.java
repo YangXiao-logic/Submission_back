@@ -1,6 +1,6 @@
 package com.submission.collection.repository;
 
-import com.submission.collection.entity.collection.Question;
+import com.submission.collection.entity.collection.question.Question;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

@@ -4,8 +4,11 @@ import com.submission.collection.service.NameService;
 import com.submission.common.api.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @author YangXiao
@@ -18,18 +21,21 @@ public class NameListController {
     private NameService nameService;
 
     @GetMapping("/names")
-    public CommonResult getCollectionNameSet(){
-        return CommonResult.success(null);
+    public CommonResult getCollectionNameList(@PathVariable String collectionId){
+        List<String> nameList = nameService.getNameListByCollectionId(collectionId);
+        return CommonResult.success(nameList);
     }
 
     @GetMapping("/remain-names")
-    public CommonResult getRemainNameSet(){
+    public CommonResult getRemainNameList(@PathVariable String collectionId){
+        nameService.getRemainNameList(collectionId);
         return CommonResult.success(null);
     }
 
-    @PostMapping()
-    public CommonResult getRemainNameList(){
-
+    @PostMapping("/name-list")
+    public CommonResult addNameList(@PathVariable String collectionId){
+        nameService.addCollectionNameList(collectionId);
+        return CommonResult.success(collectionId);
     }
 
 }

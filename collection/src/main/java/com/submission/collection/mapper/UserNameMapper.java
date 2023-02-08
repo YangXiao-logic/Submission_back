@@ -1,7 +1,7 @@
 package com.submission.collection.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.submission.collection.entity.collection.question.Question;
+import com.submission.collection.entity.name.UserName;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -9,10 +9,11 @@ import java.util.List;
 
 /**
  * @author YangXiao
- * @since 2022/11/21 10:10
+ * @since 2023/2/5 10:17
  */
 @Mapper
-public interface QuestionMapper extends BaseMapper<Question> {
+public interface UserNameMapper extends BaseMapper<UserName> {
 
-    int insertBatch(@Param("questionList") List<Question> questionList);
+    List<String> getNameListByUserId(@Param("userId") String userId);
+
 }

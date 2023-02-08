@@ -3,7 +3,7 @@ package com.submission.collection.service.impl;
 import cn.dev33.satoken.stp.StpUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.submission.collection.entity.collection.Collection;
-import com.submission.collection.entity.collection.Question;
+import com.submission.collection.entity.collection.question.Question;
 import com.submission.collection.mapper.CollectMapper;
 import com.submission.collection.mapper.QuestionMapper;
 import com.submission.collection.repository.QuestionDataRepository;
@@ -29,8 +29,6 @@ public class CollectServiceImpl implements CollectService {
     @Autowired
     private QuestionRepository questionRepository;
 
-    @Autowired
-    private QuestionDataRepository questionDataRepository;
 
     @Override
     public int createCollect(Collection collection) {

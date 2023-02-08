@@ -1,8 +1,8 @@
 package com.submission.collect.mapper;
 
 import cn.hutool.core.util.IdUtil;
-import com.submission.collection.entity.name.Name;
-import com.submission.collection.mapper.NameMapper;
+import com.submission.collection.entity.name.CollectionName;
+import com.submission.collection.mapper.UserNameMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,10 +12,10 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @since 2023/2/5 12:37
  */
 @SpringBootTest
-class NameMapperTest {
+class UserNameMapperTest {
 
     @Autowired
-    private NameMapper nameMapper;
+    private UserNameMapper userNameMapper;
 
     @Test
     void getNameList() {
@@ -23,13 +23,13 @@ class NameMapperTest {
 
     @Test
     void insertName() {
-        Name name = new Name();
+        CollectionName name = new CollectionName();
         name.setCollectionId("collectionId");
         name.setUserId("userId");
         name.setName_("name");
         String idStr = IdUtil.getSnowflake().nextIdStr();
         name.setNameId(idStr);
-        nameMapper.insertName(name);
+        userNameMapper.insertName(name);
     }
 
     @Test

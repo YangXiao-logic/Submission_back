@@ -1,4 +1,4 @@
-package com.submission.collection.entity.collection;
+package com.submission.collection.entity.collection.question;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -13,7 +13,7 @@ import lombok.Data;
 @Data
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = SingleOptionQuestion.class, name = "SingleOption"),
+        @JsonSubTypes.Type(value = SingleChoiceQuestion.class, name = "SingleChoice"),
         @JsonSubTypes.Type(value = FileAttachmentQuestion.class, name = "FileAttachment"),
         @JsonSubTypes.Type(value = SimpleTextInputQuestion.class, name = "SimpleTextInput")
 })

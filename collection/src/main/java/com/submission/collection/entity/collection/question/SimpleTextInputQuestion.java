@@ -1,4 +1,4 @@
-package com.submission.collection.entity.collection;
+package com.submission.collection.entity.collection.question;
 
 /**
  * @author YangXiao

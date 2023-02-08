@@ -1,5 +1,6 @@
 package com.submission.collection.service;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -8,32 +9,18 @@ import java.util.Set;
  */
 public interface NameService {
 
-    Set<String> getNameList(String collectionId);
-
-    Set<String> getRemainNameList(String collectionId);
+    List<String> getRemainNameList(String collectionId);
 
 
     /**
-     * add name list to collection, add name to user if name not exist in user
+     * add name list to collection
      * @param nameStringSet
      * @param collectionId
      * @return
      */
-    int addNameListToCollection(Set<String> nameStringSet, String collectionId);
+    int addCollectionNameList(List<String> nameStringList, String collectionId);
 
-    /**
-     * add name to collection from name history
-     * @param nameString
-     * @param collectionId
-     * @return
-     */
-    int addNameToCollection(String nameString, String collectionId);
 
-    /**
-     * add name to user history.
-     * @param nameString
-     * @return
-     */
-    int addNameToUser(String nameString);
 
+    List<String> getNameListByCollectionId(String collectionId);
 }

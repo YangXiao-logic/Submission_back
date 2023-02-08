@@ -8,10 +8,10 @@ import lombok.Data;
  * @since 2023/2/5 10:15
  */
 @Data
-public class Name {
+public class CollectionName {
 
-    private String nameId;
-    private String name_;
-    private String userId;
+    @TableId
+    private String id;
+    private String name;
     private String collectionId;
 }
