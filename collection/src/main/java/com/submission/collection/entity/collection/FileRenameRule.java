@@ -7,7 +7,7 @@ import lombok.Data;
  * @since 2022/11/22 10:07
  */
 @Data
-public class FileNameRule {
+public class FileRenameRule {
     private String type;
     private String label;
     private String ruleOrder;

@@ -7,9 +7,9 @@ import java.util.List;
 
 /**
  * @author YangXiao
- * @since 2022/11/21 15:33
+ * @since 2023/2/8 13:21
  */
 @Data
-public class SingleChoiceQuestion extends Question {
+public class MultiplyChoiceQuestion extends Question {
     private List<String> optionList;
 }

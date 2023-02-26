@@ -1,7 +1,7 @@
 package com.submission.collect.mapper;
 
 import com.submission.collection.entity.collection.question.SingleChoiceQuestion;
-import com.submission.collection.entity.collection.question.Question;
+import com.submission.collection.entity.collection.Question;
 import com.submission.collection.mapper.QuestionMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

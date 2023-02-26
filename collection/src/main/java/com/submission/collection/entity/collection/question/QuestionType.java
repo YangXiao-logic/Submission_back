@@ -8,11 +8,12 @@ import lombok.Getter;
  */
 @Getter
 public enum QuestionType {
-    SingleOption("SingleOption"),
-    MultiplyOption("MultiplyOption"),
-    FileAttachment("FileAttachment");
-
-    private String type;
+    SingleChoice("SingleChoice"),
+    MultiplyChoice("MultiplyChoice"),
+    FileAttachment("FileAttachment"),
+    SimpleTextInput("SimpleTextInput"),
+    Name("Name");
+    private final String type;
     private QuestionType(String type){
         this.type=type;
     }

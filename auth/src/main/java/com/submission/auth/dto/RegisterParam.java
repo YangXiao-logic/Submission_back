@@ -27,7 +27,6 @@ public class RegisterParam {
     @NotNull
     @Length(min = 6,message = "密码在6位以上")
     private String confirmPassword;
-
-    private String sms;
+    
 
 }

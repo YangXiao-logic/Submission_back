@@ -4,7 +4,6 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.core.util.URLUtil;
 import cn.hutool.json.JSONUtil;
 import com.submission.common.domain.WebLog;
-import io.swagger.annotations.ApiOperation;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
@@ -39,8 +38,9 @@ public class WebLogAspect {
     private static final Logger LOGGER = LoggerFactory.getLogger(WebLogAspect.class);
 
     @Pointcut("execution(public * com.submission.auth.controller.*.*(..))||" +
-            "execution(public * com.submission.teacher.controller.*.*(..))||" +
-            "execution(public * com.submission.collect.controller.*.*(..))||" +
+            "execution(public * com.submission.submit.controller.*.*(..))||" +
+            "execution(public * com.submission.collection.controller.*.*(..))||" +
+            "execution(public * com.submission.*.controller.*.*(..))||" +
             "execution(public * com.submission.common.exception.GlobalExceptionHandler.handleValidException(..))")
     public void webLog() {
     }
@@ -72,10 +72,10 @@ public class WebLogAspect {
         MethodSignature methodSignature = (MethodSignature) signature;
         Method method = methodSignature.getMethod();
 
-        if (method.isAnnotationPresent(ApiOperation.class)) {
-            ApiOperation apiOperation = method.getAnnotation(ApiOperation.class);
-            webLog.setDescription(apiOperation.value());
-        }
+//        if (method.isAnnotationPresent(ApiOperation.class)) {
+//            ApiOperation apiOperation = method.getAnnotation(ApiOperation.class);
+//            webLog.setDescription(apiOperation.value());
+//        }
 
         long endTime = System.currentTimeMillis();
         String urlStr = request.getRequestURL().toString();

@@ -108,4 +108,9 @@ public class AuthServiceImpl implements AuthService {
         String loginId = (String) StpUtil.getLoginId();
 //        customerRoleRelationDao.insert()
     }
+
+    @Override
+    public void logout() {
+        StpUtil.logout(StpUtil.getLoginId());
+    }
 }

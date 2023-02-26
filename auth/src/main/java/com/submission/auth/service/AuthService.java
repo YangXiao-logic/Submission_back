@@ -26,4 +26,6 @@ public interface AuthService {
     List<String> getRoleList(String customerId);
 
     void createRole(String role);
+
+    void logout();
 }

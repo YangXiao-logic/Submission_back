@@ -4,7 +4,7 @@ import com.submission.collection.entity.collection.Question;
 
 /**
  * @author YangXiao
- * @since 2022/11/22 10:05
+ * @since 2023/2/8 13:22
  */
-public class SimpleTextInputQuestion extends Question {
+public class NameQuestion extends Question {
 }

@@ -15,10 +15,19 @@ spring:
           uri: lb://teacher
           predicates:
             - Path=/teacher/**
-        - id: collect
-          uri: lb://collect
+
+        - id: collection
+          uri: lb://collection
           predicates:
             - Path=/collections/**
+        - id: submission
+          uri: lb://submission
+          predicates:
+            - Path=/submit/**
+        - id: file
+          uri: lb://file
+          predicates:
+            - Path=/aliyun/**
       discovery:
         locator:
           enabled: false #开启从注册中心动态创建路由的功能
@@ -32,16 +41,16 @@ spring:
     password:
 
 
-#knife4j:
-#  enableAggregation: true
-#  nacos:
-#    enable: true
-#    serviceUrl: http://47.108.53.218:8848/
-#    routes:
-#      - name: 授权服务
-#        serviceName: auth
-#        location: /v2/api-docs?group=default
-#        servicePath: /auth
+knife4j:
+  enableAggregation: true
+  nacos:
+    enable: true
+    serviceUrl: http://47.108.53.218:8848/
+    routes:
+      - name: 授权服务
+        serviceName: auth
+        location: /v2/api-docs?group=default
+        servicePath: /auth
 
 
 # Sa-Token配置

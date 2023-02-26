@@ -1,7 +1,7 @@
 package com.submission.collection.entity.collection.question;
 
-import com.submission.collection.entity.collection.FileNameRule;
-import com.submission.collection.entity.collection.question.Question;
+import com.submission.collection.entity.collection.FileRenameRule;
+import com.submission.collection.entity.collection.Question;
 
 import java.util.List;
 
@@ -10,5 +10,5 @@ import java.util.List;
  * @since 2022/11/22 9:58
  */
 public class FileAttachmentQuestion extends Question {
-    List<FileNameRule> fileNameRuleList;
+    List<FileRenameRule> fileRenameRuleList;
 }

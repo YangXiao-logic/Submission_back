@@ -3,12 +3,13 @@ package com.submission.collection.entity.collection;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.submission.collection.entity.collection.question.Question;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 import java.util.Date;
 import java.util.List;
 
@@ -24,16 +25,19 @@ public class Collection {
     @TableId
     private String collectionId;
 
-    private String collectorId;
+    @Null
+    private String userId;
     private String collectorName;
     private String title;
     private String description;
 
     @NotNull
     @NotBlank
+    @Future
     private Date releaseTime;
     @NotNull
     @NotBlank
+    @Future
     private Date closeTime;
 
     @TableField(exist = false)

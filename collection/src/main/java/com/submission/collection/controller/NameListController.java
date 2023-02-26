@@ -2,11 +2,9 @@ package com.submission.collection.controller;
 
 import com.submission.collection.service.NameService;
 import com.submission.common.api.CommonResult;
+import com.submission.common.api.CommonResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,7 +12,8 @@ import java.util.List;
  * @author YangXiao
  * @since 2023/2/5 9:30
  */
-@RestController("/collections/{collectionId}")
+@RestController
+@RequestMapping("/collections/{collectionId}")
 public class NameListController {
 
     @Autowired
@@ -28,14 +27,13 @@ public class NameListController {
 
     @GetMapping("/remain-names")
     public CommonResult getRemainNameList(@PathVariable String collectionId){
-        nameService.getRemainNameList(collectionId);
-        return CommonResult.success(null);
+        List<String> remainNameList = nameService.getRemainNameList(collectionId);
+        return CommonResult.success(remainNameList);
     }
 
     @PostMapping("/name-list")
-    public CommonResult addNameList(@PathVariable String collectionId){
-        nameService.addCollectionNameList(collectionId);
-        return CommonResult.success(collectionId);
+    public CommonResult addNameList(@PathVariable String collectionId, @RequestBody List<String> nameList){
+        return CommonResultUtil.processCommonResult(nameService.addCollectionNameList(nameList,collectionId));
     }
 
 }

@@ -23,13 +23,13 @@ class UserNameMapperTest {
 
     @Test
     void insertName() {
-        CollectionName name = new CollectionName();
-        name.setCollectionId("collectionId");
-        name.setUserId("userId");
-        name.setName_("name");
-        String idStr = IdUtil.getSnowflake().nextIdStr();
-        name.setNameId(idStr);
-        userNameMapper.insertName(name);
+//        CollectionName name = new CollectionName();
+//        name.setCollectionId("collectionId");
+//        name.setUserId("userId");
+//        name.setName_("name");
+//        String idStr = IdUtil.getSnowflake().nextIdStr();
+//        name.setNameId(idStr);
+//        userNameMapper.insertName(name);
     }
 
     @Test

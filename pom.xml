@@ -16,7 +16,8 @@
         <module>teacher</module>
         <module>student</module>
         <module>collection</module>
-        <module>_submission</module>
+        <module>submit</module>
+        <module>file</module>
     </modules>
 
 

@@ -1,7 +1,7 @@
 package com.submission.collection.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.submission.collection.entity.collection.question.Question;
+import com.submission.collection.entity.collection.Question;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

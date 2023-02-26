@@ -26,15 +26,13 @@ public class NameServiceImpl implements NameService {
     @Autowired
     private CollectionNameMapper collectionNameMapper;
 
-    String userId = (String) StpUtil.getLoginId();
+
     Snowflake snowflake = IdUtil.getSnowflake();
-
-
-
 
 
     @Override
     public List<String> getRemainNameList(String collectionId) {
+        String userId = (String) StpUtil.getLoginId();
         List<String> userNameList = userNameMapper.getNameListByUserId(userId);
         List<String> collectionNameList = collectionNameMapper.getNameListByCollectionId(collectionId);
         collectionNameList.removeAll(userNameList);
@@ -51,22 +49,7 @@ public class NameServiceImpl implements NameService {
             collectionName.setCollectionId(collectionId);
             return collectionName;
         }).collect(Collectors.toList());
-        int i = collectionNameMapper.insertBatch(collectionNameList);
-        return i;
-    }
-
-    @Override
-    public int addCollectionNameList(Set<String> nameStringSet, String collectionId) {
-        Set<String> allNameSet = userNameMapper.getNameListByUserId(userId);
-        Set<CollectionName> nameSet = nameStringSet.stream().filter(nameString -> !allNameSet.contains(nameString)).map(nameString -> {
-            CollectionName name = new CollectionName();
-            name.setNameId(snowflake.nextIdStr());
-            name.setCollectionId(collectionId);
-            name.setName_(nameString);
-            name.setUserId(userId);
-            return name;
-        }).collect(Collectors.toSet());
-        return userNameMapper.insertNameBatch(nameSet);
+        return collectionNameMapper.insertBatch(collectionNameList);
     }
 
     @Override
@@ -74,18 +57,4 @@ public class NameServiceImpl implements NameService {
         return collectionNameMapper.getNameListByCollectionId(collectionId);
     }
 
-    @Override
-    public int addNameToCollection(String nameString, String collectionId) {
-        CollectionName name = new CollectionName();
-        name.setNameId(snowflake.nextIdStr());
-        name.setCollectionId(collectionId);
-        name.setName_(nameString);
-        name.setUserId(userId);
-        return userNameMapper.insertName(name);
-    }
-
-    @Override
-    public int addNameToUser(String nameString) {
-        return 0;
-    }
 }
