@@ -8,7 +8,9 @@ import cn.hutool.core.util.IdUtil;
 import com.submission.collection.dto.CollectionHomeResult;
 import com.submission.collection.entity.collection.Collection;
 import com.submission.collection.dto.CollectionDetailResult;
+import com.submission.collection.entity.collection.FileRenamePattern;
 import com.submission.collection.entity.collection.Question;
+import com.submission.collection.entity.collection.question.FileAttachmentQuestion;
 import com.submission.collection.entity.collection.question.NameQuestion;
 import com.submission.collection.mapper.CollectionMapper;
 import com.submission.collection.repository.QuestionRepository;
@@ -19,9 +21,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @author YangXiao
@@ -55,6 +60,21 @@ public class CollectionServiceImpl implements CollectionService {
             question.setCollectionId(collectionId);
             question.setQuestionId(snowflake.nextIdStr());
         }).collect(Collectors.toList());
+        List<Question> finalQuestionList = questionList;
+        questionList.forEach(question -> {
+            if(question instanceof FileAttachmentQuestion){
+                List<FileRenamePattern> patternList =
+                        ((FileAttachmentQuestion) question).getFileRenamePatternList().stream().peek((fileRenamePattern -> {
+                            String tempQuestionId = fileRenamePattern.getTempQuestionId();
+                            String questionId =
+                                    finalQuestionList.stream()
+                                            .filter(questionFindId -> Objects.equals(questionFindId.getTempQuestionId(), tempQuestionId))
+                                            .findFirst().map(Question::getQuestionId).orElse("noId");
+                            fileRenamePattern.setQuestionId(questionId);
+                        })).collect(Collectors.toList());
+                ((FileAttachmentQuestion) question).setFileRenamePatternList(patternList);
+            }
+        });
         questionRepository.saveAll(questionList);
         return 1;
     }
@@ -75,9 +95,9 @@ public class CollectionServiceImpl implements CollectionService {
         List<CollectionHomeResult> collectionHomeResults = collectionMapper.selectAllByUserId(managerId);
         collectionHomeResults = collectionHomeResults.stream().peek(collectionHomeResult -> {
             collectionHomeResult.setSubmissionCount(submissionRepository.countByCollectionId(collectionHomeResult.getCollectionId()));
-            if(DateUtil.compare(collectionHomeResult.getCloseTime(),DateUtil.date())<0){
+            if (DateUtil.compare(collectionHomeResult.getCloseTime(), DateUtil.date()) < 0) {
                 collectionHomeResult.setState(0);
-            }else {
+            } else {
                 collectionHomeResult.setState(1);
             }
         }).collect(Collectors.toList());
@@ -116,7 +136,6 @@ public class CollectionServiceImpl implements CollectionService {
         List<Question> questionList = questionRepository.findAllByCollectionId(collectionId);
 
 
-
         Date closeTime = collection.getCloseTime();
         long countDown = DateUtil.between(closeTime, DateUtil.date(), DateUnit.DAY);
         int submissionCount = submissionRepository.countByCollectionId(collectionId);
@@ -127,14 +146,14 @@ public class CollectionServiceImpl implements CollectionService {
         collectionDetailResult.setSubmissionCount(submissionCount);
         collectionDetailResult.setFileCount(1);
 
-        for(Question question: questionList){
-            if(question instanceof NameQuestion) {
+        for (Question question : questionList) {
+            if (question instanceof NameQuestion) {
                 collectionDetailResult.setHasSmartName(true);
                 List<String> remainNameList = nameService.getRemainNameList(collectionId);
                 List<String> nameList = nameService.getNameListByCollectionId(collectionId);
                 collectionDetailResult.setNameList(nameList);
                 collectionDetailResult.setRemainNameList(remainNameList);
-            }else {
+            } else {
                 collectionDetailResult.setHasSmartName(false);
             }
         }

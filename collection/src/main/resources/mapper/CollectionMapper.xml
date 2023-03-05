@@ -3,6 +3,6 @@
 <mapper namespace="com.submission.collection.mapper.CollectionMapper">
 
     <select id="selectAllByUserId" resultType="com.submission.collection.dto.CollectionHomeResult">
-        select collection_id, title, collector_name, close_time from collection where user_id = #{userId};
+        select collection_id, title, collector_name, close_time from collection where user_id = #{userId} order by create_time desc;
     </select>
 </mapper>

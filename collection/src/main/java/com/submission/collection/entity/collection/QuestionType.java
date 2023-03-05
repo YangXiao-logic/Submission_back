@@ -1,4 +1,4 @@
-package com.submission.collection.entity.collection.question;
+package com.submission.collection.entity.collection;
 
 import lombok.Getter;
 

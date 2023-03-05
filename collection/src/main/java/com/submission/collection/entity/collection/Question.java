@@ -7,6 +7,7 @@ import com.submission.collection.entity.collection.question.*;
 import com.submission.common.validation.Enum;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 
 /**
  * @author YangXiao
@@ -26,9 +27,14 @@ public class Question {
     private String questionId;
     private String collectionId;
 
+    @Transient
+    private String tempQuestionId;
+
     private int questionOrder;
     private String name;
     private String description;
+
+    private boolean required;
 
     @Enum(enumClass = QuestionType.class)
     private QuestionType type;
