@@ -5,4 +5,7 @@
     <select id="selectAllByUserId" resultType="com.submission.collection.dto.CollectionHomeResult">
         select collection_id, title, collector_name, close_time from collection where user_id = #{userId} order by create_time desc;
     </select>
+    <select id="selectCollectionIdByUserId" resultType="java.lang.String">
+        select collection_id from collection where user_id = #{userId} order by create_time desc;
+    </select>
 </mapper>

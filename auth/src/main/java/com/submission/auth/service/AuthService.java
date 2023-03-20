@@ -28,4 +28,6 @@ public interface AuthService {
     void createRole(String role);
 
     void logout();
+
+    int resetPassword();
 }

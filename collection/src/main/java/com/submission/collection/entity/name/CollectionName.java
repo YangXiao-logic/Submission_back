@@ -11,7 +11,7 @@ import lombok.Data;
 public class CollectionName {
 
     @TableId
-    private String id;
+    private String nameId;
     private String name;
     private String collectionId;
 }

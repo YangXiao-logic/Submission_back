@@ -19,7 +19,9 @@ public class Answer {
     private String answerId;
     @Indexed
     private String collectionId;
-    private List<String> answerContent;
+
     private String submissionId;
+
+    private List<String> answerContent;
 
 }

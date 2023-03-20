@@ -113,4 +113,9 @@ public class AuthServiceImpl implements AuthService {
     public void logout() {
         StpUtil.logout(StpUtil.getLoginId());
     }
+
+    @Override
+    public int resetPassword() {
+        return 0;
+    }
 }

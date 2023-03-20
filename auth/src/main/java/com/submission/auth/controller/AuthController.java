@@ -39,5 +39,11 @@ public class AuthController {
         return CommonResult.success(null,"登出成功");
     }
 
+    @PostMapping("/resetPassword")
+    public CommonResult resetPassword(){
+        authService.resetPassword();
+        return CommonResult.success(null,"成功");
+    }
+
 
 }

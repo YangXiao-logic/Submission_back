@@ -16,4 +16,7 @@ import java.util.List;
 public interface CollectionMapper extends BaseMapper<Collection> {
 
     List<CollectionHomeResult> selectAllByUserId(@Param("userId") String userId);
+
+    List<String> selectCollectionIdByUserId(@Param("userId") String userId);
+
 }

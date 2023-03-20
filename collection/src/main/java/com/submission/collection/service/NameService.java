@@ -1,7 +1,6 @@
 package com.submission.collection.service;
 
 import java.util.List;
-import java.util.Set;
 
 /**
  * @author YangXiao
@@ -9,7 +8,6 @@ import java.util.Set;
  */
 public interface NameService {
 
-    List<String> getRemainNameList(String collectionId);
 
 
     /**
@@ -18,9 +16,12 @@ public interface NameService {
      * @param collectionId
      * @return
      */
-    int addCollectionNameList(List<String> nameStringList, String collectionId);
+    int addNameList(List<String> nameStringList, String collectionId);
 
 
 
     List<String> getNameListByCollectionId(String collectionId);
+
+    int deleteCollectionName(String name);
+
 }

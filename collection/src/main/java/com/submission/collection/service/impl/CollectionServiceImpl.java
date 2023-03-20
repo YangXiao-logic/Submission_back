@@ -10,23 +10,25 @@ import com.submission.collection.entity.collection.Collection;
 import com.submission.collection.dto.CollectionDetailResult;
 import com.submission.collection.entity.collection.FileRenamePattern;
 import com.submission.collection.entity.collection.Question;
+import com.submission.collection.entity.collection.QuestionType;
 import com.submission.collection.entity.collection.question.FileAttachmentQuestion;
 import com.submission.collection.entity.collection.question.NameQuestion;
+import com.submission.collection.entity.submission.Answer;
 import com.submission.collection.mapper.CollectionMapper;
+import com.submission.collection.repository.AnswerRepository;
 import com.submission.collection.repository.QuestionRepository;
 import com.submission.collection.repository.SubmissionRepository;
 import com.submission.collection.service.CollectionService;
 import com.submission.collection.service.NameService;
+import com.submission.common.exception.Asserts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * @author YangXiao
@@ -46,6 +48,9 @@ public class CollectionServiceImpl implements CollectionService {
 
     @Autowired
     private NameService nameService;
+
+    @Autowired
+    private AnswerRepository answerRepository;
 
     @Override
     public int createCollection(Collection collection) {
@@ -133,8 +138,13 @@ public class CollectionServiceImpl implements CollectionService {
     @Override
     public CollectionDetailResult getDetailCollection(String collectionId) {
         Collection collection = collectionMapper.selectById(collectionId);
-        List<Question> questionList = questionRepository.findAllByCollectionId(collectionId);
 
+        String userId = (String) StpUtil.getLoginId();
+        if(!Objects.equals(userId, collection.getUserId())){
+            Asserts.fail("没有访问该收集的权限");
+        }
+
+        List<Question> questionList = questionRepository.findAllByCollectionId(collectionId);
 
         Date closeTime = collection.getCloseTime();
         long countDown = DateUtil.between(closeTime, DateUtil.date(), DateUnit.DAY);
@@ -146,10 +156,15 @@ public class CollectionServiceImpl implements CollectionService {
         collectionDetailResult.setSubmissionCount(submissionCount);
         collectionDetailResult.setFileCount(1);
 
+        List<String> collectionIdList = collectionMapper.selectCollectionIdByUserId(userId);
+
         for (Question question : questionList) {
             if (question instanceof NameQuestion) {
                 collectionDetailResult.setHasSmartName(true);
-                List<String> remainNameList = nameService.getRemainNameList(collectionId);
+                List<String> questionIdList =
+                        questionRepository.findDistinctQuetionIdByCollectionIdInAndType(collectionIdList,
+                                QuestionType.Name.getType());
+                answerRepository.findAllBySubmissionId()
                 List<String> nameList = nameService.getNameListByCollectionId(collectionId);
                 collectionDetailResult.setNameList(nameList);
                 collectionDetailResult.setRemainNameList(remainNameList);

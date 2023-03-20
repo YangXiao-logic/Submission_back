@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.submission.collection.mapper.CollectionNameMapper">
+<mapper namespace="com.submission.collection.mapper.NameMapper">
     <insert id="insertBatch">
-        insert into collection_name(collection_id, `name`) values
+        insert into name_list_collection(name_id, collection_id, `name`) values
         <foreach collection="collectionNameList" separator=",">
-            (#{collectionId}, #{name})
+            (#{nameId}, #{collectionId}, #{name})
         </foreach>;
     </insert>
     <select id="getNameListByCollectionId" resultType="java.lang.String">
-        select `name` from collection_name where collection_id = #{collectionId}
+        select `name` from name_list_collection where collection_id = #{collectionId}
     </select>
 </mapper>

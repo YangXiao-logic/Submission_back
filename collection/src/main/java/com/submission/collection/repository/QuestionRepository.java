@@ -17,4 +17,9 @@ public interface QuestionRepository extends MongoRepository<Question,String> {
 
     int deleteAllByCollectionId(String collectionId);
 
+    List<String> findDistinctQuetionIdByCollectionIdInAndType(List<String> collectionIds, String type);
+
+
+
+
 }

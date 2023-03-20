@@ -1,8 +1,5 @@
 package com.submission.collect.mapper;
 
-import cn.hutool.core.util.IdUtil;
-import com.submission.collection.entity.name.CollectionName;
-import com.submission.collection.mapper.UserNameMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
