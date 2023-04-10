@@ -13,7 +13,6 @@ import com.submission.collection.entity.collection.Question;
 import com.submission.collection.entity.collection.QuestionType;
 import com.submission.collection.entity.collection.question.FileAttachmentQuestion;
 import com.submission.collection.entity.collection.question.NameQuestion;
-import com.submission.collection.entity.submission.Answer;
 import com.submission.collection.mapper.CollectionMapper;
 import com.submission.collection.repository.AnswerRepository;
 import com.submission.collection.repository.QuestionRepository;
@@ -162,9 +161,10 @@ public class CollectionServiceImpl implements CollectionService {
             if (question instanceof NameQuestion) {
                 collectionDetailResult.setHasSmartName(true);
                 List<String> questionIdList =
-                        questionRepository.findDistinctQuetionIdByCollectionIdInAndType(collectionIdList,
+                        questionRepository.findQuestionIdsByCollectionIdInAndType(collectionIdList,
                                 QuestionType.Name.getType());
-                answerRepository.findAllBySubmissionId()
+                List<String> remainNameList =
+                        answerRepository.findDistinctAnswerContentByQuestionIdIn(questionIdList);
                 List<String> nameList = nameService.getNameListByCollectionId(collectionId);
                 collectionDetailResult.setNameList(nameList);
                 collectionDetailResult.setRemainNameList(remainNameList);

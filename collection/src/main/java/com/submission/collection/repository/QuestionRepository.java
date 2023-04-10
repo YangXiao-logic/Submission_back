@@ -2,6 +2,7 @@ package com.submission.collection.repository;
 
 import com.submission.collection.entity.collection.Question;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 
 import java.util.List;
 
@@ -17,7 +18,8 @@ public interface QuestionRepository extends MongoRepository<Question,String> {
 
     int deleteAllByCollectionId(String collectionId);
 
-    List<String> findDistinctQuetionIdByCollectionIdInAndType(List<String> collectionIds, String type);
+    @Query(fields = "{questionId:1}")
+    List<String> findQuestionIdsByCollectionIdInAndType(List<String> collectionIds, String type);
 
 
 

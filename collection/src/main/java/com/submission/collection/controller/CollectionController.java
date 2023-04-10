@@ -35,8 +35,8 @@ public class CollectionController {
 
     @GetMapping("/{collectionId}")
     public CommonResult getCollection(@PathVariable String collectionId){
-        Collection collect = collectionService.getCollection(collectionId);
-        return CommonResult.success(collect);
+        Collection collection = collectionService.getCollection(collectionId);
+        return CommonResult.success(collection);
     }
 
     @PutMapping("/{collectionId}")

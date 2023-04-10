@@ -8,6 +8,12 @@ import cn.dev33.satoken.router.SaHttpMethod;
 import cn.dev33.satoken.router.SaRouter;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.dev33.satoken.util.SaResult;
+import cn.hutool.json.JSONUtil;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.submission.common.api.CommonResult;
+import com.submission.common.api.ResultCode;
+import com.submission.common.exception.Asserts;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,7 +40,7 @@ public class SaTokenConfig {
                 // 拦截地址
                 .addInclude("/**")
                 // 开放地址
-                .addExclude("/favicon.ico")
+                .addExclude("/favicon.ico","/submit/**")
                 // 鉴权方法：每次访问进入
                 .setAuth(r -> {
                     // 登录认证：除登录接口都需要认证
@@ -72,7 +78,9 @@ public class SaTokenConfig {
                     //设置错误返回格式为JSON
                     ServerWebExchange exchange = SaReactorSyncHolder.getContext();
                     exchange.getResponse().getHeaders().set("Content-Type", "application/json; charset=utf-8");
-                    return SaResult.error(e.getMessage());
+                    SaResult error = SaResult.error(e.getMessage());
+                    String s = JSONUtil.toJsonStr(CommonResult.failed(ResultCode.UNAUTHORIZED));
+                    return s;
                 });
     }
 }

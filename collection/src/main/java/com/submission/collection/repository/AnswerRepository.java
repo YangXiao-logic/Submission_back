@@ -13,6 +13,6 @@ public interface AnswerRepository extends MongoRepository<Answer, String> {
 
     List<Answer> findAllBySubmissionId(String submissionId);
 
-    List<>
+    List<String> findDistinctAnswerContentByQuestionIdIn(List<String> questionIds);
 
 }
