@@ -1,6 +1,8 @@
 package com.submission.collection.service.impl;
 
+import com.submission.collection.dto.SubmissionViewResult;
 import com.submission.collection.entity.collection.Question;
+import com.submission.collection.entity.collection.QuestionType;
 import com.submission.collection.entity.submission.Answer;
 import com.submission.collection.entity.submission.AnswerView;
 import com.submission.collection.entity.submission.SubmissionBrief;
@@ -31,9 +33,32 @@ public class SubmissionServiceImpl implements SubmissionService {
     private SubmissionRepository submissionRepository;
 
     @Override
-    public List<SubmissionBrief> getSubmissionList(String collectionId) {
+    public List<SubmissionViewResult> getSubmissionList(String collectionId) {
+
+        List<Question> question =
+                questionRepository.findQuestionIdsByCollectionIdAndType(collectionId, QuestionType.Name.getType());
+
+        List<String> questionIdList = question.stream().map(Question::getQuestionId).collect(Collectors.toList());
+
+        List<Answer> nameSubmissionList =
+                answerRepository.findDistinctAnswerContentByQuestionIdIn(questionIdList);
+
         List<SubmissionBrief> submissionBriefList = submissionRepository.findAllByCollectionId(collectionId);
-        return submissionBriefList;
+
+        List<SubmissionViewResult> submissionViewResults = submissionBriefList.stream().map(submissionBrief -> {
+            String submissionId = submissionBrief.getSubmissionId();
+            String name = nameSubmissionList.stream().filter(answer -> answer.getSubmissionId().equals(submissionId))
+                    .findFirst()
+                    .map(answer -> answer.getAnswerContent().get(0))
+                    .orElse(null);
+            SubmissionViewResult submissionViewResult = new SubmissionViewResult();
+            submissionViewResult.setSubmissionId(submissionId);
+            submissionViewResult.setName(name);
+            submissionViewResult.setSubmitTime(submissionBrief.getSubmitTime());
+            return submissionViewResult;
+        }).collect(Collectors.toList());
+
+        return submissionViewResults;
     }
 
     @Override

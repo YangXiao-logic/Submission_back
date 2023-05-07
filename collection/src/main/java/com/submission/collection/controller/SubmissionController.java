@@ -3,7 +3,6 @@ package com.submission.collection.controller;
 import com.submission.collection.entity.submission.Answer;
 import com.submission.collection.entity.submission.AnswerView;
 import com.submission.collection.entity.submission.Submission;
-import com.submission.collection.entity.submission.SubmissionBrief;
 import com.submission.collection.service.SubmissionService;
 import com.submission.common.api.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -18,10 +18,13 @@ public interface NameService {
      */
     int addNameList(List<String> nameStringList, String collectionId);
 
-
-
     List<String> getNameListByCollectionId(String collectionId);
 
-    int deleteCollectionName(String name);
+    int putNameList(String collectionId, List<String> nameList);
+
+    int addName(String collectionId, String name);
+
+    int deleteName(String collectionId, String name);
+
 
 }

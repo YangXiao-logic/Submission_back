@@ -1,4 +1,4 @@
-package com.submission.collection.entity.submission;
+package com.submission.collection.dto;
 
 import lombok.Data;
 
@@ -6,11 +6,11 @@ import java.util.Date;
 
 /**
  * @author YangXiao
- * @since 2023/2/9 9:44
+ * @since 2023/4/26 13:50
  */
 @Data
-public class SubmissionBrief {
+public class SubmissionViewResult {
     private String submissionId;
-    private String collectionId;
+    private String name;
     private Date submitTime;
 }

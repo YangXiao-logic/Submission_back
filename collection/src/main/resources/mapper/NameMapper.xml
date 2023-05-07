@@ -7,7 +7,10 @@
             (#{nameId}, #{collectionId}, #{name})
         </foreach>;
     </insert>
+
     <select id="getNameListByCollectionId" resultType="java.lang.String">
-        select `name` from name_list_collection where collection_id = #{collectionId}
+        select `name`
+        from name_list_collection
+        where collection_id = #{collectionId}
     </select>
 </mapper>

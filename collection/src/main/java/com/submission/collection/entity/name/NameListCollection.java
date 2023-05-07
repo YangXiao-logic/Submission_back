@@ -8,7 +8,7 @@ import lombok.Data;
  * @since 2023/2/5 10:15
  */
 @Data
-public class CollectionName {
+public class NameListCollection {
 
     @TableId
     private String nameId;

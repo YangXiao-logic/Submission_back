@@ -5,6 +5,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author YangXiao
@@ -19,9 +20,10 @@ public interface QuestionRepository extends MongoRepository<Question,String> {
     int deleteAllByCollectionId(String collectionId);
 
     @Query(fields = "{questionId:1}")
-    List<String> findQuestionIdsByCollectionIdInAndType(List<String> collectionIds, String type);
+    List<Question> findQuestionIdsByCollectionIdInAndType(List<String> collectionIds, String type);
 
 
-
+    @Query(fields = "{questionId:1}")
+    List<Question> findQuestionIdsByCollectionIdAndType(String collectionId, String type);
 
 }

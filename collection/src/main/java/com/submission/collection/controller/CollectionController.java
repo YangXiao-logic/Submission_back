@@ -1,10 +1,12 @@
 package com.submission.collection.controller;
 
 import com.submission.collection.dto.CollectionHomeResult;
+import com.submission.collection.dto.SubmissionViewResult;
 import com.submission.collection.entity.collection.Collection;
 import com.submission.collection.dto.CollectionDetailResult;
 import com.submission.collection.entity.submission.SubmissionBrief;
 import com.submission.collection.service.CollectionService;
+import com.submission.collection.service.NameService;
 import com.submission.collection.service.SubmissionService;
 import com.submission.common.api.CommonResult;
 import com.submission.common.api.CommonResultUtil;
@@ -26,6 +28,10 @@ public class CollectionController {
 
     @Autowired
     private SubmissionService submissionService;
+
+
+    @Autowired
+    private NameService nameService;
 
     @PostMapping
     public CommonResult createCollection(@RequestBody Collection collection){
@@ -72,8 +78,15 @@ public class CollectionController {
 
     @GetMapping("/{collectionId}/submissions")
     CommonResult getSubmissionList(@PathVariable String collectionId) {
-        List<SubmissionBrief> submissionBriefList = submissionService.getSubmissionList(collectionId);
+        List<SubmissionViewResult> submissionBriefList = submissionService.getSubmissionList(collectionId);
         return CommonResult.success(submissionBriefList);
     }
+
+//    @PutMapping("/{collectionId}/name-list")
+//    CommonResult putNameList(@PathVariable String collectionId, @RequestBody List<String> nameList) {
+//        int result = nameService.putNameList(collectionId, nameList);
+//        return CommonResultUtil.processCommonResult(result);
+//    }
+
 
 }

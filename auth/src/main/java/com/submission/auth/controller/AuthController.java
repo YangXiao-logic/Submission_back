@@ -33,7 +33,7 @@ public class AuthController {
         return CommonResult.success(null,"注册成功");
     }
 
-    @DeleteMapping("/logout")
+    @PostMapping("/logout")
     public CommonResult logout(){
         authService.logout();
         return CommonResult.success(null,"登出成功");

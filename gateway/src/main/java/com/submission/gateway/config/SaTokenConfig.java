@@ -48,7 +48,8 @@ public class SaTokenConfig {
 //                        SaRouter.match("/**", url, StpUtil::checkLogin);
 //
 //                    }
-                    SaRouter.match("/**","/auth/login", StpUtil::checkLogin);
+//                    SaRouter.match("/**","/auth/login", StpUtil::checkLogin);
+                    SaRouter.match("/**").notMatch("/auth/login").notMatch("/submit/**").check(StpUtil::checkLogin);
                     // 权限认证：不同接口访问权限不同
 //                    SaRouter.match("/api/test/hello", () -> StpUtil.checkPermission("api:test:hello"));
 //                    SaRouter.match("/api/user/info", () -> StpUtil.checkPermission("api:user:info"));

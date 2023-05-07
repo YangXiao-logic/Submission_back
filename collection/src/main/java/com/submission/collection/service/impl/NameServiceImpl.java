@@ -3,7 +3,7 @@ package com.submission.collection.service.impl;
 import cn.hutool.core.lang.Snowflake;
 import cn.hutool.core.util.IdUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.submission.collection.entity.name.CollectionName;
+import com.submission.collection.entity.name.NameListCollection;
 import com.submission.collection.mapper.NameMapper;
 import com.submission.collection.service.NameService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +29,8 @@ public class NameServiceImpl implements NameService {
     public int addNameList(List<String> nameStringList, String collectionId) {
         List<String> nameListByCollectionId = nameMapper.getNameListByCollectionId(collectionId);
         nameStringList.removeAll(nameListByCollectionId);
-        List<CollectionName> collectionNameList = nameStringList.stream().distinct().map(nameString -> {
-            CollectionName collectionName = new CollectionName();
+        List<NameListCollection> collectionNameList = nameStringList.stream().distinct().map(nameString -> {
+            NameListCollection collectionName = new NameListCollection();
             collectionName.setName(nameString);
             collectionName.setNameId(snowflake.nextIdStr());
             collectionName.setCollectionId(collectionId);
@@ -45,10 +45,43 @@ public class NameServiceImpl implements NameService {
     }
 
 
+
+
     @Override
-    public int deleteCollectionName(String name){
-        QueryWrapper<CollectionName> objectQueryWrapper = new QueryWrapper<CollectionName>().eq("name", name);
-        return nameMapper.delete(objectQueryWrapper);
+    public int putNameList(String collectionId, List<String> nameList) {
+
+        List<String> nameListByCollectionId = getNameListByCollectionId(collectionId);
+        List<String> newName =
+                nameList.stream().filter(name -> !nameListByCollectionId.contains(name)).collect(Collectors.toList());
+        List<String> nameDeleted =
+                nameListByCollectionId.stream().filter(name -> !nameList.contains(name)).collect(Collectors.toList());
+
+
+        QueryWrapper<NameListCollection> nameListCollectionQueryWrapper = new QueryWrapper<>();
+        nameListCollectionQueryWrapper.eq("collection_id",collectionId);
+        nameListCollectionQueryWrapper.in("name",nameDeleted);
+
+        addNameList(newName, collectionId);
+        nameMapper.delete(nameListCollectionQueryWrapper);
+        return 1;
+    }
+
+    @Override
+    public int addName(String collectionId, String name) {
+        NameListCollection nameListCollection = new NameListCollection();
+        nameListCollection.setName(name);
+        nameListCollection.setNameId(snowflake.nextIdStr());
+        nameListCollection.setCollectionId(collectionId);
+        nameMapper.insert(nameListCollection);
+        return 1;
+    }
+
+    @Override
+    public int deleteName(String collectionId, String name) {
+        QueryWrapper<NameListCollection> nameListCollectionQueryWrapper = new QueryWrapper<>();
+        nameListCollectionQueryWrapper.eq("collection_id", collectionId);
+        nameListCollectionQueryWrapper.eq("name", name);
+        return nameMapper.delete(nameListCollectionQueryWrapper);
     }
 
 }

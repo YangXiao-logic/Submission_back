@@ -13,6 +13,7 @@ import com.submission.collection.entity.collection.Question;
 import com.submission.collection.entity.collection.QuestionType;
 import com.submission.collection.entity.collection.question.FileAttachmentQuestion;
 import com.submission.collection.entity.collection.question.NameQuestion;
+import com.submission.collection.entity.submission.Answer;
 import com.submission.collection.mapper.CollectionMapper;
 import com.submission.collection.repository.AnswerRepository;
 import com.submission.collection.repository.QuestionRepository;
@@ -26,6 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -50,6 +52,8 @@ public class CollectionServiceImpl implements CollectionService {
 
     @Autowired
     private AnswerRepository answerRepository;
+
+
 
     @Override
     public int createCollection(Collection collection) {
@@ -160,11 +164,17 @@ public class CollectionServiceImpl implements CollectionService {
         for (Question question : questionList) {
             if (question instanceof NameQuestion) {
                 collectionDetailResult.setHasSmartName(true);
-                List<String> questionIdList =
+                List<Question> questionIdMap =
                         questionRepository.findQuestionIdsByCollectionIdInAndType(collectionIdList,
                                 QuestionType.Name.getType());
-                List<String> remainNameList =
+//                questionIdList.
+//                List<String> questionIdList = (List<String>) questionIdMap.values();
+
+                List<String> questionIdList = questionIdMap.stream().map(Question::getQuestionId).collect(Collectors.toList());
+                List<Answer> remainNameAnswerList =
                         answerRepository.findDistinctAnswerContentByQuestionIdIn(questionIdList);
+                List<String> remainNameList = remainNameAnswerList.stream().map(answer -> answer.getAnswerContent().get(0)).distinct().collect(Collectors.toList());
+
                 List<String> nameList = nameService.getNameListByCollectionId(collectionId);
                 collectionDetailResult.setNameList(nameList);
                 collectionDetailResult.setRemainNameList(remainNameList);
@@ -181,4 +191,6 @@ public class CollectionServiceImpl implements CollectionService {
         questionRepository.saveAll(collection.getQuestionList());
         return 1;
     }
+
+
 }
